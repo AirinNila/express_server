@@ -1,6 +1,4 @@
 import express from "express";
-import { Request, Response } from 'express';
-import { pool } from "../../config/db";
 import { userControllers } from "./user.controller";
 
 const router = express.Router()
