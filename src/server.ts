@@ -12,10 +12,8 @@ import { todosRoutes } from "./modules/todos/todos.routes";
 const app = express()
 const port = config.port
 
-
 // initionalizing db
 initDb()
-
 
 
 //parser
@@ -28,11 +26,8 @@ app.get('/', logger, (req: Request, res: Response) => {
 })
 
 
-
 //users CRUD
 app.use("/users", userRoutes)
-
-
 //ToDos CRUD
 app.use('/todos', todosRoutes)
 
