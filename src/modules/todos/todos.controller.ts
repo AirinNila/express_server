@@ -3,10 +3,10 @@ import { todosServices } from './todos.service';
 
 //post 
 const createTodos =    async (req: Request, res: Response) => {
-const {user_id, title} = req.body;
+
 
   try {
-    const result = await todosServices.createTodos(user_id, title)
+    const result = await todosServices.createTodos(req.body)
 
     console.log(result);
 
