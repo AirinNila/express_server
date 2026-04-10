@@ -6,6 +6,7 @@ import initDb, { pool } from "./config/db";
 import { logger } from "./middleware/logger";
 import { userRoutes } from "./modules/users/user.routes";
 import { todosRoutes } from "./modules/todos/todos.routes";
+import { authRoutes } from "./modules/auth/auth.routes";
 
 
 
@@ -30,6 +31,9 @@ app.get('/', logger, (req: Request, res: Response) => {
 app.use("/users", userRoutes)
 //ToDos CRUD
 app.use('/todos', todosRoutes)
+
+//auth 
+app.use("/auth", authRoutes)
 
 
 

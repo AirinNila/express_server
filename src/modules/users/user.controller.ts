@@ -3,10 +3,10 @@ import { userServices } from './user.service';
 
 //post 
 const createUser =   async (req: Request, res: Response) => {
-const {name, email} = req.body;
+
 
   try {
-   const result = await userServices.createUser(name, email)
+   const result = await userServices.createUser(req.body)
 
     console.log(result);
 
