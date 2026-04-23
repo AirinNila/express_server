@@ -1,12 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
-import jwt from "jsonwebtoken"
+import jwt, { JwtPayload } from "jsonwebtoken"
 import config from '../config';
 
 // higher order function always func return kore
 
 const auth = () => {
     return (req: Request, res: Response, next: NextFunction) => {
-        const token = req.headers.authorization;
+         try {
+
+            const token = req.headers.authorization;
         console.log({authToken: token,});
 
         if(!token){
@@ -15,7 +17,16 @@ const auth = () => {
 
         const decoded = jwt.verify(token, config.jwtSecret as string);
         console.log(decoded);
+        req.user = decoded as JwtPayload;
         next()
+
+        } catch (error: any) {
+            res.status(500).json({
+                success: false,
+                message: error.message
+
+            })
+        }
     }
 }
 
