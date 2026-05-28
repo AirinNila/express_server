@@ -3,6 +3,7 @@ import jwt, { JwtPayload } from "jsonwebtoken"
 import config from '../config';
 
 // higher order function always func return kore
+// for git stick
 
 const auth = () => {
     return (req: Request, res: Response, next: NextFunction) => {
